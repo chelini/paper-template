@@ -5,16 +5,18 @@ TEX_MAIN_DRAFT = paper.tex
 TEX_MAIN_GRAMMARLY = grammarly.tex
 TEX_MAIN_BLIND = blind.tex
 TEX_MAIN_CAMERA = camera.tex
+TEX_MAIN_CAMERA_IEEE = cameraIEEE.tex
 
 # Generate PDF files
 PDF_DRAFT = paper.pdf
 PDF_GRAMMARLY = grammarly.pdf
 PDF_BLIND = blind.pdf
 PDF_CAMERA = camera.pdf
+PDF_CAMERA_IEEE = cameraIEEE.pdf
 
 IMAGES := $(wildcard images/*.jpg images/*.pdf images/*.png)
 
-all: ${PDF_DRAFT} ${PDF_GRAMMARLY} ${PDF_BLIND} ${PDF_CAMERA}
+all: ${PDF_DRAFT} ${PDF_GRAMMARLY} ${PDF_BLIND} ${PDF_CAMERA} ${PDF_CAMERA_IEEE}
 
 ${PDF_DRAFT}: ${TEX_MAIN_DRAFT} ${TEX_MAIN} ${IMAGES}
 	latexmk ${TEX_MAIN_DRAFT}
@@ -27,6 +29,9 @@ ${PDF_BLIND}: ${TEX_MAIN_BLINE} ${TEX_MAIN} ${IMAGES}
 
 ${PDF_CAMERA}: ${TEX_MAIN_CAMERA} ${TEX_MAIN} ${IMAGES}
 	latexmk ${TEX_MAIN_CAMERA}
+
+${PDF_CAMERA_IEEE}: ${TEX_MAIN_CAMERA_IEEE} ${TEX_MAIN} ${IMAGES}
+	latexmk ${TEX_MAIN_CAMERA_IEEE}
 
 draft: ${PDF_DRAFT}
 
