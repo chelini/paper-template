@@ -41,6 +41,8 @@ blind: ${PDF_BLIND}
 
 camera: ${PDF_CAMERA}
 
+cameraIEEE: ${PDF_CAMERA_IEEE}
+
 view-draft: ${TEX_MAIN_DRAFT} ${TEX_MAIN} ${IMAGES}
 	latexmk -pvc ${TEX_MAIN_DRAFT}
 
@@ -52,6 +54,9 @@ view-blind: ${TEX_MAIN_BLIND} ${TEX_MAIN} ${IMAGES}
 
 view-camera: ${TEX_MAIN_CAMERA} ${TEX_MAIN} ${IMAGES}
 	latexmk -pvc ${TEX_MAIN_CAMERA}
+
+view-camera-ieee: ${TEX_MAIN_CAMERA_IEEE} ${TEX_MAIN} ${IMAGES}
+	latexmk -pvc ${TEX_MAIN_CAMERA_IEEE}
 
 clean:
 	rm -rf ${DIFF_PREV_PDF} ; latexmk -C
