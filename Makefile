@@ -16,7 +16,7 @@ PDF_CAMERA_IEEE = cameraIEEE.pdf
 
 IMAGES := $(wildcard images/*.jpg images/*.pdf images/*.png)
 
-all: ${PDF_DRAFT}
+all: ${PDF_DRAFT} ${PDF_GRAMMARLY} ${PDF_BLIND} ${PDF_CAMERA} ${PDF_CAMERA_IEEE}
 
 ${PDF_DRAFT}: ${TEX_MAIN_DRAFT} ${TEX_MAIN} ${IMAGES}
 	latexmk ${TEX_MAIN_DRAFT}
@@ -33,9 +33,7 @@ ${PDF_CAMERA}: ${TEX_MAIN_CAMERA} ${TEX_MAIN} ${IMAGES}
 ${PDF_CAMERA_IEEE}: ${TEX_MAIN_CAMERA_IEEE} ${TEX_MAIN} ${IMAGES}
 	latexmk ${TEX_MAIN_CAMERA_IEEE}
 
-draft: ${PDF_DRAFT}
-
-draft: ${PDF_GRAMMARLY}
+draft: ${PDF_DRAFT} ${PDF_GRAMMARLY}
 
 blind: ${PDF_BLIND}
 
